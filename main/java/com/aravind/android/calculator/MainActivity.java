@@ -130,6 +130,38 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
         }
     }
+    public void fepowx(View view)
+    {
+        try{
+        TextView editor = (TextView) findViewById(R.id.tv);
+        if(editor.getText().length()!=0 || snum==3)
+            Toast.makeText(this, "Enter operator to continue", Toast.LENGTH_SHORT).show();
+       else if(snum<1)
+        {
+            snum=3;
+            TextView symr=(TextView) findViewById(R.id.tsym);
+            String symtxtr=symr.getText().toString();
+            if(symtxtr.contains("="))
+            {
+                symtxtr="";
+            }
+            powtmp=e;
+            if(ineg==1)
+            {
+                powtmp=0-powtmp;
+                ineg=0;
+                TextView negr=(TextView) findViewById(R.id.tneg);
+                negr.setText(null);
+                symr.setText(""+symtxtr+"-e^");
+            }
+            else
+             symr.setText(""+symtxtr+"e^");
+        }
+        }catch (Exception e)
+        {
+            Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void fmc(View view)
     {
