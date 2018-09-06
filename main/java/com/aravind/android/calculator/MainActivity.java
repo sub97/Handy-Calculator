@@ -142,6 +142,75 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
         }
     }
+    public void fsinh(View view)
+    {
+        try{
+        TextView editor = (TextView) findViewById(R.id.tv);
+        if(iarc==0)
+        {
+            if (editor.getText().length() == 0 && snum < 1) {
+                Toast.makeText(this, "Enter number to calculate its hyperbolic sine value", Toast.LENGTH_SHORT).show();
+            } else if (snum < 1) {
+                double ypxi;
+                powtmp = Double.parseDouble(editor.getText().toString());
+                if (ineg == 1) {
+                    powtmp = 0 - powtmp;
+                    ineg = 0;
+                    TextView negr = (TextView) findViewById(R.id.tneg);
+                    negr.setText(null);
+                }
+                ypxi = powtmp;
+                TextView symr = (TextView) findViewById(R.id.tsym);
+                String symtxtr = symr.getText().toString();
+                if (symtxtr.contains("=")) {
+                    symtxtr = "";
+                }
+                if (powtmp > 999999999999999.9 || powtmp < (-999999999999999.9)) {
+                    DecimalFormat df = new DecimalFormat("###############.#########E0");
+                    symr.setText("" + symtxtr + "sinh(" + df.format(ypxi) + ")");
+                } else {
+                    DecimalFormat df = new DecimalFormat("###############.###################");
+                    symr.setText("" + symtxtr + "sinh(" + df.format(ypxi) + ")");
+                }
+                snum = 13;
+            }
+        }
+
+        else
+        {
+            if (editor.getText().length() == 0 && snum < 1) {
+                Toast.makeText(this, "Enter number to calculate its inverse sine value", Toast.LENGTH_SHORT).show();
+            } else if (snum < 1) {
+                double ypxi;
+                powtmp = Double.parseDouble(editor.getText().toString());
+                if (ineg == 1) {
+                    powtmp = 0 - powtmp;
+                    ineg = 0;
+                    TextView negr = (TextView) findViewById(R.id.tneg);
+                    negr.setText(null);
+                }
+                ypxi = powtmp;
+                TextView symr = (TextView) findViewById(R.id.tsym);
+                String symtxtr = symr.getText().toString();
+                if (symtxtr.contains("=")) {
+                    symtxtr = "";
+                }
+                if (powtmp > 999999999999999.9 || powtmp < (-999999999999999.9)) {
+                    DecimalFormat df = new DecimalFormat("###############.#########E0");
+                    symr.setText("" + symtxtr + "sin⁻¹(" + df.format(ypxi) + ")");
+                } else {
+                    DecimalFormat df = new DecimalFormat("###############.###################");
+                    symr.setText("" + symtxtr + "sin⁻¹(" + df.format(ypxi) + ")");
+                }
+                snum = 17;
+            }
+         }
+        }catch (Exception e)
+        {
+            Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void fmr(View view)
     {
